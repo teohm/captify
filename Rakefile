@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "cpfy"
   gem.homepage = "http://github.com/teohm/cpfy"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{capistrano files generator}
+  gem.description = %Q{capistrano files generator}
   gem.email = "teohuiming@gmail.com"
   gem.authors = ["Yasith Fernando", "Huiming Teo"]
   # dependencies defined in Gemfile

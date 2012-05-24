@@ -10,8 +10,9 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Yasith Fernando", "Huiming Teo"]
   s.date = "2012-05-24"
-  s.description = "TODO: longer description of your gem"
+  s.description = "capistrano files generator"
   s.email = "teohuiming@gmail.com"
+  s.executables = ["cpfy"]
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.rdoc"
@@ -19,16 +20,20 @@ Gem::Specification.new do |s|
   s.files = [
     ".document",
     "Gemfile",
+    "Gemfile.lock",
     "LICENSE.txt",
     "README.rdoc",
     "Rakefile",
-    "VERSION"
+    "VERSION",
+    "bin/cpfy",
+    "cpfy.gemspec",
+    "lib/cpfy/template.rb"
   ]
   s.homepage = "http://github.com/teohm/cpfy"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.24"
-  s.summary = "TODO: one-line summary of your gem"
+  s.summary = "capistrano files generator"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
