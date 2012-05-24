@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+
+require 'cpfy/template'
+
+Cpfy::Template.load_all
+
+if ARGV.empty?
+    abort "Please specify the directory to cpfy, e.g. `#{File.basename($0)} .'"
+elsif !File.exists?(ARGV.first)
+    abort "`#{ARGV.first}' does not exist."
+elsif !File.directory?(ARGV.first)
+    abort "`#{ARGV.first}' is not a directory."
+elsif ARGV.length > 1
+    abort "Too many arguments; please specify only the directory to capify."
+end
+
+base_dir = ARGV.first
+
+template_name = ENV['T'] || 'rails-basic'
+file_paths = Cpfy::Template.template_files(template_name)
+
+`capify #{base_dir}`
+
+file_paths.each do |src_path|
+  dest_path = src_path.split( "#{template_name}" ).last
+  dest_dir  = File.dirname(dest_path)
+  puts "[cpfy] Overwrite file '#{base_dir}#{dest_path}'" 
+  `mkdir -p \"#{base_dir}#{dest_dir}\" && cp \"#{src_path}\" \"#{base_dir}#{dest_path}\"`
+end
+
+puts "[cpfy] Done!"
