@@ -1,11 +1,11 @@
 = captify
 
 == Install
-  gem install captify
+  gem install capistrano-templates  # default template is stored in this gem
 
 For bundler, add this to your Gemfile:
 
-  gem 'captify'
+  gem 'capistrano-templates'
 
 == Usage
   cd my_project
