@@ -14,9 +14,9 @@ opts = OptionParser.new do |opts|
     template_name = template
   end
 
-  opts.on("-r", "--require LIBRARY", 
-          "Add LIBRARY that contains templates into load path") do |lib|
-    require lib
+  opts.on("-g", "--gem TEMPLATE_GEM", 
+          "Add gem that contains templates into load path") do |lib|
+    gem lib
   end
 
   opts.on_tail("-h", "--help", "Show this message") do 

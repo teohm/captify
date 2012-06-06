@@ -21,9 +21,9 @@ To use a different template:
   cd my_project
   bundle exec captify -t sinatra-basic .
 
-=== How to load template without bundler?
+=== How to load a template gem without bundler?
   cd my_project
-  captify -r capistrano-templates -t rails-basic .
+  captify -g capistrano-templates -t rails-basic .
 
 === See also
   captify -h
