@@ -3,6 +3,8 @@
 require 'captify/template'
 require 'optparse'
 
+template_name = 'rails-basic'
+
 opts = OptionParser.new do |opts|
   opts.banner = "Usage: captify [options] directory"
 
@@ -42,7 +44,6 @@ end
 
 base_dir = ARGV.first
 
-template_name = 'rails-basic' unless template_name
 file_paths = Captify::Template.template_files(template_name)
 
 puts `capify #{base_dir}`
