@@ -9,7 +9,7 @@ For bundler, add this to your Gemfile:
 
 == Usage
   cd my_project
-  captify .   # use default template: rails-basic
+  bundle exec captify .   # use default template: rails-basic
 
 It will:
 
@@ -19,7 +19,15 @@ It will:
 To use a different template:
 
   cd my_project
-  T=sinatra-basic captify .
+  bundle exec captify -t sinatra-basic .
+
+=== How to load template without bundler?
+  cd my_project
+  captify -r capistrano-templates -t rails-basic .
+
+=== See also
+  captify -h
+
 
 == Contributing to captify
  

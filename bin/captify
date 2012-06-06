@@ -1,22 +1,48 @@
 #!/usr/bin/env ruby
 
 require 'captify/template'
+require 'optparse'
+
+opts = OptionParser.new do |opts|
+  opts.banner = "Usage: captify [options] directory"
+
+  opts.separator ""
+  opts.separator "Options:"
+
+  opts.on("-t", "--template TEMPLATE_NAME", 
+          "Specify the template to be used") do |template|
+    template_name = template
+  end
+
+  opts.on("-r", "--require LIBRARY", 
+          "Add LIBRARY that contains templates into load path") do |lib|
+    require lib
+  end
+
+  opts.on_tail("-h", "--help", "Show this message") do 
+    puts opts
+    exit
+  end
+end
+
+opts.parse!(ARGV)
+
 
 Captify::Template.load_all
 
 if ARGV.empty?
-    abort "Please specify the directory to captify, e.g. `#{File.basename($0)} .'"
+    abort "Please specify the directory to captify, e.g. `#{File.basename($0)} .'\n\n#{opts}"
 elsif !File.exists?(ARGV.first)
-    abort "`#{ARGV.first}' does not exist."
+    abort "`#{ARGV.first}' does not exist.\n\n#{opts}"
 elsif !File.directory?(ARGV.first)
-    abort "`#{ARGV.first}' is not a directory."
+    abort "`#{ARGV.first}' is not a directory.\n\n#{opts}"
 elsif ARGV.length > 1
-    abort "Too many arguments; please specify only the directory to capify."
+    abort "Too many arguments; please specify only the directory to captify.\n\n#{opts}"
 end
 
 base_dir = ARGV.first
 
-template_name = ENV['T'] || 'rails-basic'
+template_name = 'rails-basic' unless template_name
 file_paths = Captify::Template.template_files(template_name)
 
 puts `capify #{base_dir}`
