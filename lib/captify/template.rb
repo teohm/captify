@@ -1,4 +1,4 @@
-module Cpfy
+module Captify
   class Template
 
     def self.load_all

@@ -1,11 +1,11 @@
 #!/usr/bin/env ruby
 
-require 'cpfy/template'
+require 'captify/template'
 
-Cpfy::Template.load_all
+Captify::Template.load_all
 
 if ARGV.empty?
-    abort "Please specify the directory to cpfy, e.g. `#{File.basename($0)} .'"
+    abort "Please specify the directory to captify, e.g. `#{File.basename($0)} .'"
 elsif !File.exists?(ARGV.first)
     abort "`#{ARGV.first}' does not exist."
 elsif !File.directory?(ARGV.first)
@@ -17,15 +17,15 @@ end
 base_dir = ARGV.first
 
 template_name = ENV['T'] || 'rails-basic'
-file_paths = Cpfy::Template.template_files(template_name)
+file_paths = Captify::Template.template_files(template_name)
 
-`capify #{base_dir}`
+puts `capify #{base_dir}`
 
 file_paths.each do |src_path|
   dest_path = src_path.split( "#{template_name}" ).last
   dest_dir  = File.dirname(dest_path)
-  puts "[cpfy] Overwrite file '#{base_dir}#{dest_path}'" 
+  puts "[captify] Overwrite file '#{base_dir}#{dest_path}'" 
   `mkdir -p \"#{base_dir}#{dest_dir}\" && cp \"#{src_path}\" \"#{base_dir}#{dest_path}\"`
 end
 
-puts "[cpfy] Done!"
+puts "[captify] Done!"

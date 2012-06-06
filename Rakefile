@@ -14,13 +14,13 @@ require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "cpfy"
-  gem.homepage = "http://github.com/teohm/cpfy"
+  gem.name = "captify"
+  gem.homepage = "http://github.com/teohm/captify"
   gem.license = "MIT"
-  gem.summary = %Q{capistrano files generator}
-  gem.description = %Q{capistrano files generator}
+  gem.summary = %Q{Capistrano capify with canned templates.}
+  gem.description = %Q{Capistrano capify with canned templates.}
   gem.email = "teohuiming@gmail.com"
-  gem.authors = ["Yasith Fernando", "Huiming Teo"]
+  gem.authors = ["Huiming Teo"]
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new
@@ -32,7 +32,7 @@ Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "cpfy #{version}"
+  rdoc.title = "captify #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
