@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "bin/captify",
+    "captify.gemspec",
     "lib/captify/template.rb"
   ]
   s.homepage = "http://github.com/teohm/captify"
