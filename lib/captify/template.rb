@@ -1,11 +1,17 @@
 module Captify
   class Template
-
     def self.load_all
-      $LOAD_PATH.each do |path|
-        template_path = File.join(path, 'template.rb')
-        load template_path if File.exist? template_path
-      end
+     # find_in_load_path
+     $LOAD_PATH.each do |path|
+       template_path = File.join(path, 'captify_template.rb')
+       load template_path if File.exist? template_path
+     end
+
+     # find_in_latest_gem_require_paths 
+     Gem.latest_load_paths.each do |path|
+       template_path = File.join(path, 'captify_template.rb')
+       load template_path if File.exist? template_path
+     end
     end
 
     def self.template_files(template_name)
@@ -23,7 +29,7 @@ module Captify
       @@templates ||= {}
       dirs.each do |dir|
         name, files = extract_template_name_and_files dir
-        @@templates[name] = files
+        @@templates[name] = files unless @@templates[name].nil?
       end
     end
 
