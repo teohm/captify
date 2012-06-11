@@ -1,16 +1,8 @@
 module Captify
   class Template
     def self.load_all
-     # find_in_load_path
-     $LOAD_PATH.each do |path|
-       template_path = File.join(path, 'captify_template.rb')
-       load template_path if File.exist? template_path
-     end
-
-     # find_in_latest_gem_require_paths 
-     Gem.latest_load_paths.each do |path|
-       template_path = File.join(path, 'captify_template.rb')
-       load template_path if File.exist? template_path
+     Gem.find_files('captify_template').each do |path|
+       load path if File.exist? path
      end
     end
 
