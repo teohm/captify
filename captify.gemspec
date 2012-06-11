@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "captify"
-  s.version = "0.1.4"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Huiming Teo"]
-  s.date = "2012-06-06"
+  s.date = "2012-06-11"
   s.description = "Capistrano capify with canned templates."
   s.email = "teohuiming@gmail.com"
   s.executables = ["captify"]
