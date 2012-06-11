@@ -21,7 +21,11 @@ module Captify
       @@templates ||= {}
       dirs.each do |dir|
         name, files = extract_template_name_and_files dir
-        @@templates[name] = files unless @@templates[name].nil?
+        if @@template[name].nil?
+          @@templates[name] = files
+        else
+          puts "[captify] warn: template `#{name}' already loaded, ignore `#{file_path}'"
+        end
       end
     end
 
