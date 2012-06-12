@@ -1,7 +1,7 @@
 = captify
 
 == Install
-  gem install capistrano-templates  # default template is stored in this gem
+  gem install capistrano-templates  # default template stored in this gem
 
 For bundler, add this to your Gemfile:
 
@@ -9,21 +9,17 @@ For bundler, add this to your Gemfile:
 
 == Usage
   cd my_project
-  bundle exec captify .   # use default template: rails-basic
+  captify .   # use default template: rails-basic
 
 It will:
 
 1. Run capify.
-2. Overwrite Capistrano files with default template: rails-basic
+2. Overwrite Capistrano files with default template: rails-basic (see capistrnao-templates[https://github.com/teohm/capistrano-templates]).
 
 To use a different template:
 
   cd my_project
-  bundle exec captify -t sinatra-basic .
-
-=== How to load a template gem without bundler?
-  cd my_project
-  captify -g capistrano-templates -t rails-basic .
+  captify -t sinatra-basic .
 
 === See also
   captify -h
