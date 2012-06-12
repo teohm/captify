@@ -1,7 +1,27 @@
 module Captify
   class Template
+
+    def self.find_files_in_load_path(glob)
+      $LOAD_PATH.map { |load_path|
+        Dir["#{File.expand_path glob, load_path}#{Gem.suffix_pattern}"]
+      }.flatten.select { |file| File.file? file.untaint }
+    end
+
+    def self.find_files_in_latest_gems(glob, prelease=false)
+      Gem::Specification.latest_specs(:prelease => prelease).map { |spec|
+        spec.matches_for_glob("#{glob}#{Gem.suffix_pattern}")
+      }.flatten
+    end
+
+    def self.find_latest_files(glob, check_load_path=true)
+      files = []
+      files = find_files_in_load_path(glob) if check_load_path
+      files.concat find_files_in_latest_gems(glob)
+      return files
+    end
+
     def self.load_all
-     Gem.find_files('captify_template').each do |path|
+     find_latest_files('captify_template').each do |path|
        load path if File.exist? path
      end
     end
