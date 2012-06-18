@@ -8,13 +8,14 @@ GEM
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
     git (1.2.5)
-    highline (1.6.12)
+    highline (1.6.13)
     jeweler (1.8.3)
       bundler (~> 1.0)
       git (>= 1.2.5)
       rake
       rdoc
     json (1.7.3)
+    minitest (3.1.0)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
@@ -33,4 +34,5 @@ DEPENDENCIES
   bundler (~> 1.0.0)
   capistrano
   jeweler (~> 1.8.3)
+  minitest
   rdoc (~> 3.12)
