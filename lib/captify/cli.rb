@@ -1,3 +1,5 @@
+require 'optparse'
+
 module Captify
 
   # Capture inputs from command line interface.
