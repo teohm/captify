@@ -1,3 +1,5 @@
+require 'fileutils'
+
 module Captify
   class Template
     attr_accessor :name, :base_dir, :files
