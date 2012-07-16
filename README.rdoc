@@ -9,17 +9,12 @@ For bundler, add this to your Gemfile:
 
 == Usage
   cd my_project
-  captify .   # use default template: rails-basic
+  captify -t rails-base .   # use default template: rails-basic
 
 It will:
 
 1. Run capify.
-2. Overwrite Capistrano files with default template: rails-basic (see capistrnao-templates[https://github.com/teohm/capistrano-templates]).
-
-To use a different template:
-
-  cd my_project
-  captify -t sinatra-basic .
+2. Overwrite Capistrano files with template: rails-base (see capistrnao-templates[https://github.com/teohm/capistrano-templates]).
 
 === See also
   captify -h

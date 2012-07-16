@@ -1,0 +1,1 @@
+Captify::TemplateBundle.register
